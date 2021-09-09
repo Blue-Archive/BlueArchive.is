@@ -16,8 +16,7 @@ const Home: NextPage = (): JSX.Element => {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <title>Blue Archive.is</title>
+        <title>BlueArchive.is</title>
       </Head>
       <Main>
         <Image
