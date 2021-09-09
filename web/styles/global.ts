@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     color: #000000;
     font-size: 20px;
-    font-family: $FONT_FAMILY;
+    font-family: 'MainFont';
     letter-spacing: -0.03em;
     user-select: none;
   }
