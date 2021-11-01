@@ -1,9 +1,9 @@
-export default {
+const theme = {
   // DEBUG
   DEBUG: true,
 
   // FONT
-  FONT: `'Noto Sans KR', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif`,
+  FONT: `MainFont, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif`,
 
   // SIZE
   MAX_WIDTH: '2560px',
@@ -27,4 +27,6 @@ export default {
   red: '#eb2e2e',
   grn: '#20ad20',
   blue: '#264bcc',
-}
+};
+
+export default theme;

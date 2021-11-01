@@ -1,0 +1,39 @@
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - 'google'
+  - 'prettier'
+  - 'next'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 12
+  sourceType: module
+  project:
+    - './tsconfig.json'
+plugins:
+  - '@typescript-eslint'
+  - 'unused-imports'
+  - 'prettier'
+  - 'react'
+rules:
+  linebreak-style:
+    - 'error'
+    - 'unix'
+  require-jsdoc:
+    - 0
+  react/prop-types:
+    - 0
+  'unused-imports/no-unused-imports':
+    - 1
+  camelcase:
+    - 0
+  new-cap:
+    - 0
+  no-console:
+    - 1
+  valid-jsdoc:
+    - 0

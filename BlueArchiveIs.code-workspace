@@ -9,7 +9,8 @@
 	],
 	"settings": {
 		"files.exclude": {
-			"web": true
+			"web": true,
+			".next": true
 		}
 	}
 }
