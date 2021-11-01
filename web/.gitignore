@@ -35,4 +35,4 @@ yarn-error.log*
 
 # Service Worker
 /public/sw.*
-/public/workbox.*
+/public/workbox*
