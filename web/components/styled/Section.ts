@@ -8,6 +8,7 @@ interface SectionProps {
   minHeight?: string;
   heightOverflow?: boolean;
   overlayColor?: string;
+  alignItems?: string;
   justifyContent?: string;
 }
 
@@ -22,13 +23,13 @@ const Section = styled.section<SectionProps>`
         ? `linear-gradient(${props.overlayColor}, ${props.overlayColor}),`
         : ''}
     url(${(props) => props.backgroundImage ?? ''});
-  background-color: ${(props) => props.backgroundColor ?? '#fff'};
+  background-color: ${(props) => props.backgroundColor ?? 'none'};
   background-size: ${(props) => props.backgroundSize ?? 'cover'};
   background-position: center;
   margin: 0 auto;
   overflow: hidden;
-  justify-content: ${(props) =>
-    props.heightOverflow ? 'flex-start' : 'center'};
+  align-items: ${(props) => props.justifyContent ?? 'flex-start'};
+  justify-content: ${(props) => props.justifyContent ?? 'flex-start'};
   flex-direction: column;
 `;
 
