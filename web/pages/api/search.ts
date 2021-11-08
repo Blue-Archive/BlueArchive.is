@@ -1,7 +1,7 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
 const Search: NextApiHandler = async (
-  req: NextApiRequest,
+  _req: NextApiRequest,
   res: NextApiResponse
 ) => {
   res.redirect('/');
