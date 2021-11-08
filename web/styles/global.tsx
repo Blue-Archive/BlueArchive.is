@@ -79,7 +79,7 @@ const globalStyle = (
         -moz-border-radius: 0;
         border-radius: 0;
         margin: 0;
-        font-family: $FONT_FAMILY;
+        font-family: inherit;
         font-size: inherit;
         outline: none;
         resize: none;
@@ -87,10 +87,10 @@ const globalStyle = (
         appearance: none;
 
         &[type='password'] {
-          font-family: $FONT_FAMILY;
+          font-family: inherit;
 
           &::placeholder {
-            font-family: $FONT_FAMILY;
+            font-family: inherit;
           }
         }
 
@@ -107,7 +107,7 @@ const globalStyle = (
         border: none;
         margin: 0;
         font-size: inherit;
-        font-family: $FONT_FAMILY;
+        font-family: inherit;
         cursor: pointer;
         outline: none;
         color: inherit;

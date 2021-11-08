@@ -3,6 +3,7 @@ import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Favicon from '../components/Favicon';
+import Background from '../components/styled/Background';
 import globalStyle from '../styles/global';
 import MainFont from '../styles/MainFont';
 import Miu from '../styles/Miu';
@@ -40,6 +41,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         {globalStyle}
         {Miu}
         {MainFont}
+        <Background />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

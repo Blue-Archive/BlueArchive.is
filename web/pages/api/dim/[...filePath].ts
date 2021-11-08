@@ -1,25 +1,29 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
+import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
 const RequestDataList: NextApiHandler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
-  const [category, fileName] = req.query.filePath
+  let [category, fileName] = req.query.filePath;
 
-  const jsonFileFetch: Response = await fetch(
-    `https://raw.githubusercontent.com/Sn-Kinos/BlueArchiveData/master/ja-JP/${category}/${fileName}.json`
-  )
-
-  const parsedResponseText = await jsonFileFetch.text()
-
-  if (parsedResponseText === '404: Not Found') {
-    res.status(404).json({ message: 'File Not Found' })
-    return
+  if (!fileName.includes('.json')) {
+    fileName += '.json';
   }
 
-  const parsedResponseJson = JSON.parse(parsedResponseText)
+  const jsonUrl = `https://raw.githubusercontent.com/Sn-Kinos/BlueArchiveData/master/${process.env.LOCALE}/${category}/${fileName}`;
 
-  res.status(200).json(parsedResponseJson.DataList)
-}
+  const jsonFileFetch: Response = await fetch(jsonUrl);
 
-export default RequestDataList
+  const parsedResponseText = await jsonFileFetch.text();
+
+  if (parsedResponseText === '404: Not Found') {
+    res.status(404).json({ message: 'File Not Found', from: jsonUrl });
+    return;
+  }
+
+  const parsedResponseJson = JSON.parse(parsedResponseText);
+
+  res.status(200).json(parsedResponseJson.DataList);
+};
+
+export default RequestDataList;

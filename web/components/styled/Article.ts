@@ -12,7 +12,7 @@ const Article = styled.article<ArticleProps>`
   position: relative;
   display: flex;
   width: calc(100% - 116px);
-  max-width: 1324px;
+  max-width: 980px;
   height: ${(props) => props.height ?? 'auto'};
   margin: 0 auto;
   text-align: ${(props) => props.textAlign ?? 'left'};
