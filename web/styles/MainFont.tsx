@@ -1,6 +1,6 @@
 import { css, Global } from '@emotion/react';
 
-const MainFont = (
+export const MainFont = (
   <Global
     styles={css`
       @font-face {
@@ -41,5 +41,3 @@ const MainFont = (
     `}
   />
 );
-
-export default MainFont;

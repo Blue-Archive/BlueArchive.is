@@ -6,8 +6,8 @@ import { useRouter } from 'next/router';
 import { memo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import HeaderNavigation from '../components/Header';
-import Article from '../components/styled/Article';
-import Section from '../components/styled/Section';
+import { Article } from '../components/styled/Article';
+import { Section } from '../components/styled/Section';
 import { getLocalizeCharProfileByName } from '../lib/excel/localizeCharProfile';
 
 interface IMainSearch {

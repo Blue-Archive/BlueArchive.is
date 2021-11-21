@@ -12,7 +12,7 @@ interface SectionProps {
   justifyContent?: string;
 }
 
-const Section = styled.section<SectionProps>`
+export const Section = styled.section<SectionProps>`
   position: relative;
   display: flex;
   width: 100%;
@@ -31,4 +31,3 @@ const Section = styled.section<SectionProps>`
 `;
 
 export type { SectionProps };
-export { Section as default };

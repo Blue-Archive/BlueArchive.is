@@ -8,7 +8,7 @@ interface ArticleProps {
   alignItems?: string;
 }
 
-const Article = styled.article<ArticleProps>`
+export const Article = styled.article<ArticleProps>`
   position: relative;
   display: flex;
   width: calc(100% - 116px);
@@ -28,5 +28,3 @@ const Article = styled.article<ArticleProps>`
     width: calc(100% - 40px);
   }
 `;
-
-export default Article;
