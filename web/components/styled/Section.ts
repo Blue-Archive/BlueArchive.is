@@ -16,12 +16,9 @@ const Section = styled.section<SectionProps>`
   position: relative;
   display: flex;
   width: 100%;
-  ${(props) => (props.heightOverflow ? 'min-' : '')}height: ${(props) =>
-    props.height ?? 'auto'};
+  ${(props) => (props.heightOverflow ? 'min-' : '')}height: ${(props) => props.height ?? 'auto'};
   background-image: ${(props) =>
-      props.overlayColor
-        ? `linear-gradient(${props.overlayColor}, ${props.overlayColor}),`
-        : ''}
+      props.overlayColor ? `linear-gradient(${props.overlayColor}, ${props.overlayColor}),` : ''}
     url(${(props) => props.backgroundImage ?? ''});
   background-color: ${(props) => props.backgroundColor ?? 'none'};
   background-size: ${(props) => props.backgroundSize ?? 'cover'};

@@ -40,7 +40,7 @@ const HeaderLink = styled.a`
   }
 `;
 
-function Header() {
+function HeaderNavigation() {
   return (
     <HeaderElement>
       <HeaderBox>
@@ -63,4 +63,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderNavigation;

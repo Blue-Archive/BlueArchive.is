@@ -1,9 +1,6 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
-const RequestDataList: NextApiHandler = async (
-  req: NextApiRequest,
-  res: NextApiResponse
-) => {
+const RequestDataList: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   let [category, fileName] = req.query.filePath;
 
   if (!fileName.includes('.json')) {

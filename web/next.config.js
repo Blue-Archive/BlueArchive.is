@@ -1,5 +1,5 @@
-const { i18n } = require('./next-i18next.config')
-const withPWA = require('next-pwa')
+const { i18n } = require('./next-i18next.config');
+const withPWA = require('next-pwa');
 
 module.exports = withPWA({
   i18n,
@@ -8,4 +8,4 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
   },
-})
+});
