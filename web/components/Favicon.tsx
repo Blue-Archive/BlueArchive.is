@@ -1,4 +1,4 @@
-const Favicon = () => (
+export const Favicon = () => (
   <>
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
@@ -17,5 +17,3 @@ const Favicon = () => (
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
   </>
 );
-
-export default Favicon;

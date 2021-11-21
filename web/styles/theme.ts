@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   // DEBUG
   DEBUG: true,
 
@@ -28,5 +28,3 @@ const theme = {
   grn: '#20ad20',
   blue: '#264bcc',
 };
-
-export default theme;

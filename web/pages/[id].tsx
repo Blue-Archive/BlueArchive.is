@@ -4,9 +4,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { memo } from 'react';
 import HeaderNavigation from '../components/Header';
-import Article from '../components/styled/Article';
-import Section from '../components/styled/Section';
-import Space from '../components/styled/Space';
+import { Article } from '../components/styled/Article';
+import { Section } from '../components/styled/Section';
+import { Space } from '../components/styled/Space';
 import { getLocalizeCharProfileById } from '../lib/excel/localizeCharProfile';
 
 interface IHomeProps {

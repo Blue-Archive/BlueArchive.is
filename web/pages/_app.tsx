@@ -2,12 +2,12 @@ import { ThemeProvider } from '@emotion/react';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Favicon from '../components/Favicon';
-import Background from '../components/styled/Background';
-import globalStyle from '../styles/global';
-import MainFont from '../styles/MainFont';
-import Miu from '../styles/Miu';
-import theme from '../styles/theme';
+import { Favicon } from '../components/Favicon';
+import { Background } from '../components/styled/Background';
+import { globalStyle } from '../styles/global';
+import { MainFont } from '../styles/MainFont';
+import { Miu } from '../styles/Miu';
+import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

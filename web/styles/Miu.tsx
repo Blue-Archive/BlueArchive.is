@@ -1,6 +1,6 @@
 import { css, Global } from '@emotion/react';
 
-const Miu = (
+export const Miu = (
   <Global
     styles={css`
       .miu-hover-big {
@@ -139,5 +139,3 @@ const Miu = (
     `}
   />
 );
-
-export default Miu;
