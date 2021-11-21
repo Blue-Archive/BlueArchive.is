@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { memo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import Header from '../components/Header';
+import HeaderNavigation from '../components/Header';
 import Article from '../components/styled/Article';
 import Section from '../components/styled/Section';
 import { getLocalizeCharProfileByName } from '../lib/excel/localizeCharProfile';
@@ -59,7 +59,7 @@ const Home: NextPage = (): JSX.Element => {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<IMainSearch> = async ({ query }) => {
-    const character = await getLocalizeCharProfileByName(null, query);
+    const character = await getLocalizeCharProfileByName(query);
     console.log(character);
 
     router.push(`/${character.CharacterId}`);
@@ -70,23 +70,14 @@ const Home: NextPage = (): JSX.Element => {
       <Head>
         <title>BlueArchive.is</title>
       </Head>
-      <Header />
+      <HeaderNavigation />
       <Section height="100vh" alignItems="center" justifyContent="center">
         <HomeHeader>
-          <Image
-            src="/images/logo_global.png"
-            alt="BlueArchive.is"
-            width={500}
-            height={133}
-          />
+          <Image src="/images/logo_global.png" alt="BlueArchive.is" width={500} height={133} />
         </HomeHeader>
         <Article height="55vh" flexDirection="column">
           <HomeForm onSubmit={handleSubmit(onSubmit)}>
-            <HomeInput
-              type="text"
-              defaultValue="호시노"
-              {...register('query')}
-            />
+            <HomeInput type="text" defaultValue="호시노" {...register('query')} />
           </HomeForm>
           <HomeReady>컨텐츠 준비중입니다...</HomeReady>
         </Article>

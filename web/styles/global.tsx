@@ -10,9 +10,8 @@ const globalStyle = (
         margin: 0;
         color: #000000;
         font-size: 20px;
-        font-family: MainFont, -apple-system, BlinkMacSystemFont, Segoe UI,
-          Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-          Helvetica Neue, sans-serif;
+        font-family: MainFont, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+          Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
         letter-spacing: -0.03em;
         user-select: none;
       }

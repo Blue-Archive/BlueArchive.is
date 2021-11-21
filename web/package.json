@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "rm -rf .next && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && prettier --write .",
     "restart": "yarn build && yarn start"
   },
   "dependencies": {
