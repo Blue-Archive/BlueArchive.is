@@ -16,7 +16,7 @@ export const globalStyle = (
         user-select: none;
       }
 
-      @media (max-width: 1024px), (max-height: 640px) {
+      @media (max-width: 640px), (max-height: 640px) {
         html,
         body {
           font-size: 15px;

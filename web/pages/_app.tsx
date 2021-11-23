@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Favicon } from '../components/Favicon';
 import { Background } from '../components/styled/Background';
+import { wrapper } from '../lib/store';
 import { globalStyle } from '../styles/global';
 import { MainFont } from '../styles/MainFont';
 import { Miu } from '../styles/Miu';
@@ -48,4 +49,4 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   );
 }
 
-export default appWithTranslation(MyApp);
+export default wrapper.withRedux(appWithTranslation(MyApp));

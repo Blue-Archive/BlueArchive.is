@@ -10,7 +10,8 @@
 	"settings": {
 		"files.exclude": {
 			"web": true,
-			".next": true
+			".next": true,
+			"node_modules": true,
 		}
 	}
 }
