@@ -8,6 +8,7 @@ import { Article } from '../components/styled/Article';
 import { Section } from '../components/styled/Section';
 import { Space } from '../components/styled/Space';
 import { getLocalizeCharProfileById } from '../lib/excel/localizeCharProfile';
+import { useAppDispatch } from '../lib/hooks';
 
 interface IHomeProps {
   localizeCharProfile: any;
@@ -17,13 +18,13 @@ const PortraitBox = styled.div`
   position: relative;
   display: flex;
   padding: 11px;
-  background-color: #fff;
+  background-color: #e25934;
   border: 2px solid #d8dbdf;
   border-radius: 80px 8px;
   box-shadow: 0px 2px 3px #000;
   overflow: visible;
-  margin: 3px;
-  transform: scale(0.5);
+  margin: 2rem;
+  transform: scale(calc(2 / 3));
   transform-origin: left top;
 
   &::before {
@@ -56,26 +57,14 @@ const PortraitBox = styled.div`
 `;
 
 const Home: NextPage<IHomeProps> = ({ localizeCharProfile }): JSX.Element => {
-  // const [localizeCharProfile, setLocalizeCharProfile] = useState({ ppap: 1 });
-  // const router = useRouter();
-
-  // const getLocalizeCharProfile = async () => {
-  //   setLocalizeCharProfile(localizeCharProfileRequest);
-  // };
-
-  // useEffect(() => {
-  //   getLocalizeCharProfile();
-  // }, []);
-
-  // if (localizeCharProfile.ppap === 1) return <div></div>;
-
+  const dispatch = useAppDispatch();
   return (
     <>
       <Head>
         <title>BlueArchive.is</title>
       </Head>
       <HeaderNavigation />
-      <Space height="80px" />
+      <Space height="3rem" />
       <Section alignItems="center">
         <Article flexDirection="column">
           <PortraitBox>

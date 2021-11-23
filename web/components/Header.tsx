@@ -17,7 +17,7 @@ const HeaderElement = styled.header`
 `;
 
 const HeaderBox = styled.div`
-  width: 100%;
+  width: calc(100% - 116px);
   height: 100%;
   max-width: 980px;
   font-size: 0.8rem;
@@ -29,12 +29,21 @@ const HeaderBox = styled.div`
       }
     }
   }
+
+  @media (max-width: 833px) {
+    width: calc(100% - 80px);
+  }
+
+  @media (max-width: 640px) {
+    width: calc(100% - 40px);
+  }
 `;
 
 const HeaderLink = styled.a`
   display: flex;
   line-height: 40px;
   color: #4e5863;
+
   &:hover {
     text-decoration: none;
   }
