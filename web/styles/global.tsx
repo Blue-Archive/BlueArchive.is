@@ -42,6 +42,11 @@ export const globalStyle = (
       dl {
         margin: 0;
         padding: 0;
+        line-height: 1;
+      }
+
+      h1 {
+        font-size: 2rem;
       }
 
       li {
