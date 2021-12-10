@@ -9,7 +9,7 @@ const getLocalizeCharProfile = async (host?: string) => {
 export const getLocalizeCharProfileByName = async (name: string, host?: string) => {
   const characterList = await getLocalizeCharProfile(host);
   return characterList.filter((a: LocalizeCharProfileType) =>
-    !!a.FullNameKr ? a.FullNameKr.includes(name) : false
+    !!a.PersonalNameKr ? a.PersonalNameKr.includes(name) : false
   )[0];
 };
 
