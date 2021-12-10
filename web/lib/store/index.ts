@@ -11,7 +11,7 @@ export const store = configureStore({
   devTools: devMode,
 });
 
-const setupStore = (context: any): EnhancedStore => store;
+const setupStore = (_context: any): EnhancedStore => store;
 
 const makeStore: MakeStore<typeof store> = (context: any) => setupStore(context);
 

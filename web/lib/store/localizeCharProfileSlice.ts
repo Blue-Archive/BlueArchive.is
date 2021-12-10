@@ -135,8 +135,8 @@ export const localizeCharProfileSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    updateLocalizeCharProfile: (state, action: PayloadAction<LocalizeCharProfileType>) => {
-      state = { ...action.payload };
+    updateLocalizeCharProfile: (_state, action: PayloadAction<LocalizeCharProfileType>) => {
+      _state = { ...action.payload };
     },
   },
 });
