@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "rm -rf .next && next build",
+    "build": "rm -rf ./.next && next build",
     "start": "next start",
     "lint": "next lint && prettier --write .",
-    "restart": "yarn build && yarn start"
+    "restart": "yarn build && yarn start",
+    "test": "yarn build"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
