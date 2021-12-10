@@ -1,12 +1,12 @@
 import { Action, configureStore, EnhancedStore, ThunkAction } from '@reduxjs/toolkit';
 import { createWrapper, MakeStore } from 'next-redux-wrapper';
-import counterReducer from './counterSlice';
+import localizeCharProfile from './localizeCharProfileSlice';
 
 const devMode = process.env.NODE_ENV === 'development';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    localizeCharProfile,
   },
   devTools: devMode,
 });
