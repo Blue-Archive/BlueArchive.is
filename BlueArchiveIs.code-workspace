@@ -8,9 +8,25 @@
 		}
 	],
 	"settings": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.format": true,
+      "source.organizeImports": true,
+    },
 		"files.exclude": {
 			"web": true,
 			".next": true,
-		}
+		},
+		"search.exclude": {
+			"**/.yarn": true,
+			"**/.pnp.*": true
+		},
+		"eslint.nodePath": ".yarn/sdks",
+		"prettier.prettierPath": "web/.yarn/sdks/prettier/index.js",
+		"typescript.tsdk": "web/.yarn/sdks/typescript/lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true
 	}
 }
