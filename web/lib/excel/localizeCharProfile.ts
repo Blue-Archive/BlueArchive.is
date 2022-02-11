@@ -1,8 +1,8 @@
 import type { LocalizeCharProfileType } from './types';
 
-const getLocalizeCharProfile = async (host?: string) => {
+const getLocalizeCharProfile = async (host?: string): Promise<LocalizeCharProfileType[]> => {
   host = host ? 'http://' + host : '';
-  const characterSearch = await fetch(`${host}/api/dim/Excel/LocalizeCharProfileExcelTable.json`);
+  const characterSearch = await fetch(`${host}/api/dim/LocalizeCharProfileExcelTable.json`);
   return characterSearch.json();
 };
 
