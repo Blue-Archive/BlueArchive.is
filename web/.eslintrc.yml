@@ -3,9 +3,11 @@ env:
   es2021: true
   node: true
 extends:
-  - 'google'
-  - 'prettier'
-  - 'next'
+  - eslint:recommended
+  - next/core-web-vitals
+  - plugin:@typescript-eslint/recommended
+  - plugin:@next/next/recommended
+  - prettier
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -16,9 +18,11 @@ parserOptions:
     - './tsconfig.json'
 plugins:
   - '@typescript-eslint'
-  - 'unused-imports'
   - 'prettier'
   - 'react'
+  - '@next/eslint-plugin-next'
+  - '@emotion'
+  - react-hooks
 rules:
   linebreak-style:
     - 'error'
@@ -27,8 +31,6 @@ rules:
     - 0
   react/prop-types:
     - 0
-  'unused-imports/no-unused-imports':
-    - 1
   camelcase:
     - 0
   new-cap:
