@@ -60,7 +60,6 @@ const Home: NextPage = (): JSX.Element => {
 
   const onSubmit: SubmitHandler<IMainSearch> = async ({ query }) => {
     const character = await getLocalizeCharProfileByName(query);
-    console.log(character);
 
     router.push(`/${character.CharacterId}`);
   };
