@@ -9,6 +9,7 @@ import HeaderNavigation from '../components/Header';
 import { Article } from '../components/styled/Article';
 import { Section } from '../components/styled/Section';
 import { getLocalizeCharProfileByName } from '../lib/excel/localizeCharProfile';
+import Logo from '../public/images/logo_global.png';
 
 interface IMainSearch {
   query: string;
@@ -72,7 +73,7 @@ const Home: NextPage = (): JSX.Element => {
       <HeaderNavigation />
       <Section height="100vh" alignItems="center" justifyContent="center">
         <HomeHeader>
-          <Image src="/images/logo_global.png" alt="BlueArchive.is" width={500} height={133} />
+          <Image src={Logo} alt="BlueArchive.is" />
         </HomeHeader>
         <Article height="55vh" flexDirection="column">
           <HomeForm onSubmit={handleSubmit(onSubmit)}>
