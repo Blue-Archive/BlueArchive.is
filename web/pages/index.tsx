@@ -59,6 +59,7 @@ const Home: NextPage = (): JSX.Element => {
   } = useForm<IMainSearch>();
   const router = useRouter();
 
+  //TODO: API 호출 관련 드러나지 않게 해야함
   const onSubmit: SubmitHandler<IMainSearch> = async ({ query }) => {
     const character = await getLocalizeCharProfileByName(query);
 
