@@ -10,6 +10,7 @@ interface SectionProps {
   overlayColor?: string;
   alignItems?: string;
   justifyContent?: string;
+  flexDirection?: string;
 }
 
 export const Section = styled.section<SectionProps>`
@@ -27,7 +28,7 @@ export const Section = styled.section<SectionProps>`
   overflow: hidden;
   align-items: ${(props) => props.justifyContent ?? 'flex-start'};
   justify-content: ${(props) => props.justifyContent ?? 'flex-start'};
-  flex-direction: column;
+  flex-direction: ${(props) => props.justifyContent ?? 'row'};
 `;
 
 export type { SectionProps };

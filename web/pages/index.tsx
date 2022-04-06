@@ -20,6 +20,10 @@ const HomeHeader = styled.header`
   width: 100%;
   align-items: center;
   justify-content: center;
+
+  .home-logo {
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+  }
 `;
 
 const HomeForm = styled.form`
@@ -51,19 +55,14 @@ const HomeReady = styled.div`
 `;
 
 const Home: NextPage = (): JSX.Element => {
-  const {
-    register,
-    handleSubmit,
-    // watch,
-    // formState: { errors },
-  } = useForm<IMainSearch>();
+  const { register, handleSubmit } = useForm<IMainSearch>();
   const router = useRouter();
 
   //TODO: API 호출 관련 드러나지 않게 해야함
   const onSubmit: SubmitHandler<IMainSearch> = async ({ query }) => {
-    const character = await getLocalizeCharProfileByName(query);
+    const character = await getLocalizeCharProfileByName(query, location.origin);
 
-    router.push(`/${character.CharacterId}`);
+    router.push(`/students/${character.CharacterId}`);
   };
 
   return (
@@ -72,9 +71,9 @@ const Home: NextPage = (): JSX.Element => {
         <title>BlueArchive.is</title>
       </Head>
       <HeaderNavigation />
-      <Section height="100vh" alignItems="center" justifyContent="center">
+      <Section height="100vh" alignItems="center" justifyContent="center" flexDirection="column">
         <HomeHeader>
-          <Image src={Logo} alt="BlueArchive.is" />
+          <Image src={Logo} alt="BlueArchive.is" className="home-logo" />
         </HomeHeader>
         <Article height="55vh" flexDirection="column">
           <HomeForm onSubmit={handleSubmit(onSubmit)}>

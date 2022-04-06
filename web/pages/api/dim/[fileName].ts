@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+const localeOverride = {
+  global: ['LocalizeCharProfileExcelTable'],
+};
+
 const RequestDataList = async (req: NextApiRequest, res: NextApiResponse) => {
   let fileName = req.query.fileName;
 
@@ -7,7 +11,13 @@ const RequestDataList = async (req: NextApiRequest, res: NextApiResponse) => {
     fileName += '.json';
   }
 
-  const jsonUrl = `https://raw.githubusercontent.com/HerDataSam/BlueArchiveDataDiff/master/${process.env.LOCALE}/Excel/${fileName}`;
+  let locale = process.env.LOCALE;
+
+  if (localeOverride.global.includes('LocalizeCharProfileExcelTable')) {
+    locale = 'global';
+  }
+
+  const jsonUrl = `https://raw.githubusercontent.com/HerDataSam/BlueArchiveDataDiff/master/${locale}/Excel/${fileName}`;
 
   const jsonFileFetch: Response = await fetch(jsonUrl, {
     headers: {
