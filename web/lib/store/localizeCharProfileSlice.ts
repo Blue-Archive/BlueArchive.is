@@ -83,7 +83,7 @@ const initialState: LocalizeCharProfileType = {
   ArtistNameDe: null,
   ArtistNameFr: null,
   CharacterVoiceKr: '김현지',
-  CharacterVoiceJp: '김현지',
+  CharacterVoiceJp: '松井 恵理子',
   CharacterVoiceTh: '김현지',
   CharacterVoiceTw: '김현지',
   CharacterVoiceEn: '김현지',
