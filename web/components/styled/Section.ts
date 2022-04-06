@@ -26,9 +26,9 @@ export const Section = styled.section<SectionProps>`
   background-position: center;
   margin: 0 auto;
   overflow: hidden;
-  align-items: ${(props) => props.justifyContent ?? 'flex-start'};
+  align-items: ${(props) => props.alignItems ?? 'flex-start'};
   justify-content: ${(props) => props.justifyContent ?? 'flex-start'};
-  flex-direction: ${(props) => props.justifyContent ?? 'row'};
+  flex-direction: ${(props) => props.flexDirection ?? 'row'};
 `;
 
 export type { SectionProps };
