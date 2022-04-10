@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '.';
-import { LocalizeCharProfileType } from '../excel/types';
+import type { RootState } from '..';
+import { LocalizeCharProfileType } from '../../excel/types';
 
 const initialState: LocalizeCharProfileType = {
   CharacterId: 0,
