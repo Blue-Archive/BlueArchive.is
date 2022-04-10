@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -91,5 +92,15 @@ const Home: NextPage = (): JSX.Element => {
     </>
   );
 };
+
+interface Locale {
+  locale: string;
+}
+
+export const getStaticProps = async ({ locale }: Locale) => ({
+  props: {
+    ...(await serverSideTranslations(locale, [])),
+  },
+});
 
 export default memo(Home);
