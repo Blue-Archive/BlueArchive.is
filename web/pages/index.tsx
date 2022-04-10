@@ -60,9 +60,15 @@ const Home: NextPage = (): JSX.Element => {
 
   //TODO: API 호출 관련 드러나지 않게 해야함
   const onSubmit: SubmitHandler<IMainSearch> = async ({ query }) => {
-    const character = await getLocalizeCharProfileByName(query, location.origin);
+    query = query.trim();
 
-    router.push(`/students/${character.CharacterId}`);
+    if (query) {
+      const character = await getLocalizeCharProfileByName(query, location.origin);
+
+      if (character) {
+        router.push(`/students/${character.CharacterId}`);
+      }
+    }
   };
 
   return (

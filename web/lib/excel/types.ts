@@ -1,3 +1,147 @@
+export enum Rarity {
+  'N',
+  'R',
+  'SR',
+  'SSR',
+}
+
+export type CharacterType = {
+  Id: number;
+  DevName: string;
+  ProductionStep: 'Release' | 'Complete' | 'ToDo' | 'Doing';
+  CollectionVisible: boolean;
+  IsPlayableCharacter: boolean;
+  LocalizeEtcId: number;
+  Rarity: 'N' | 'R' | 'SR' | 'SSR';
+  TacticEntityType:
+    | 'Student'
+    | 'Summoned'
+    | 'Vehicle'
+    | 'None'
+    | 'Minion'
+    | 'Elite'
+    | 'Champion'
+    | 'Boss';
+  CanSurvive: boolean;
+  IsDummy: boolean;
+  SubPartsCount: number;
+  TacticRole: 'DamageDealer' | 'Tanker' | 'Supporter' | 'Healer' | 'Vehicle';
+  WeaponType:
+    | 'SR'
+    | 'SG'
+    | 'AR'
+    | 'MG'
+    | 'SMG'
+    | 'RG'
+    | 'HG'
+    | 'GL'
+    | 'RL'
+    | 'MT'
+    | 'Cannon'
+    | 'None'
+    | 'Vulcan'
+    | 'Missile'
+    | 'Taser'
+    | 'Binah'
+    | 'Relic';
+  TacticRange: 'Back' | 'Front' | 'Middle';
+  BulletType: 'Explosion' | 'Mystic' | 'Pierce' | 'Normal';
+  ArmorType: 'LightArmor' | 'HeavyArmor' | 'Unarmed'; // Unarmed === Mystic
+  AimIKType: 'TwoHandRight' | 'None' | 'Dual' | 'OneHandLeft' | 'OneHandRight';
+  School:
+    | 'Gehenna'
+    | 'Millennium'
+    | 'Trinity'
+    | 'Abydos'
+    | 'Shanhaijing'
+    | 'Hyakkiyako'
+    | 'RedWinter'
+    | 'Valkyrie'
+    | 'Arius'
+    | 'None';
+  Club:
+    | 'Kohshinjo68'
+    | 'SPTF'
+    | 'GourmetClub'
+    | 'RemedialClass'
+    | 'Fuuki'
+    | 'Countermeasure'
+    | 'Veritas'
+    | 'CleanNClearing'
+    | 'Meihuayuan'
+    | 'TrainingClub'
+    | 'Justice'
+    | 'NinpoKenkyubu'
+    | 'GameDev'
+    | 'RedwinterSecretary'
+    | 'Onmyobu'
+    | 'Shugyobu'
+    | 'TheSeminar'
+    | 'anzenkyoku'
+    | 'Engineer'
+    | 'TrinityVigilance'
+    | 'MatsuriOffice'
+    | 'AriusSqud'
+    | 'SisterHood'
+    | 'IndeGEHENNA'
+    | 'None'
+    | 'IndeHyakkiyako'
+    | 'Endanbou'
+    | 'HoukagoDessert'
+    | 'FoodService'
+    | 'KnightsHospitaller'
+    | 'BookClub'
+    | 'Class227'
+    | 'IndeShanhaijing'
+    | 'IndeMILLENNIUM';
+  DefaultStarGrade: 3 | 2 | 1 | 0 | 5;
+  MaxStarGrade: 5 | 1 | 0;
+  StatLevelUpType: 'Standard';
+  SquadType: 'Main' | 'Support' | 'TSS';
+  Jumpable: boolean;
+  PersonalityId: number;
+  CharacterAIId: number;
+  ScenarioCharacter: string | null;
+  SpawnTemplateId: number;
+  FavorLevelupType: 1 | 0;
+  EquipmentSlot: string[];
+  SpineResourceName: string | null;
+  SpineResourceNameDiorama: string | null;
+  EntityMaterialType: 'Flesh' | 'Metal' | 'Wood';
+  ModelPrefabName: string;
+  TextureDir: string | null;
+  TextureEchelon: null;
+  CollectionTexturePath: string | null;
+  CollectionBGTexturePath: string | null;
+  TextureBoss: string | null;
+  TextureSkillCard: string[];
+  WeaponImagePath: string | null;
+  WeaponLocalizeId: number;
+  DisplayEnemyInfo: boolean;
+  BodyRadius: 25 | 110 | 150 | 75 | 50 | 20 | 100 | 40 | 35 | 0 | 500 | 350 | 80 | 60;
+  RandomEffectRadius: 25 | 80 | 150 | 75 | 50 | 20 | 100 | 35 | 0 | 500 | 350;
+  HpBarHeight: 0.6003 | 1.50014 | 1.0002999 | -0.1997 | 0.39997998 | 1.7203;
+  HighlightFloaterHeight: 0.6003 | 1.0002999 | -0.1997 | 1.7203;
+  MoveStartFrame: 0 | 160;
+  MoveEndFrame: 0 | 140;
+  JumpMotionFrame: 24 | 30 | 18 | 0;
+  AppearFrame: 20 | 30 | 45 | 75 | 53 | 70 | 81 | 0 | 174 | 69 | 55 | 65 | 77 | 80 | 95 | 100;
+  CanMove: boolean;
+  CanFix: boolean;
+  CanCrowdControl: boolean;
+  CanBattleItemMove: boolean;
+  IsAirUnit: boolean;
+  AirUnitHeight: 0 | 120;
+  Tags: [string[]];
+  SecretStoneItemId: 23 | 0;
+  SecretStoneItemAmount: 50 | 10 | 1 | 0;
+  CharacterPieceItemId: number;
+  CharacterPieceItemAmount: 30 | 0 | 5 | 1;
+  CombineRecipeId: number;
+  InformationPacel: string | null;
+  AnimationSSR: string | null;
+};
+
 export type LocalizeCharProfileType = {
   CharacterId: number;
   StatusMessageKr: string | null;
