@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import type { LocalizeCharProfileType } from './types';
 
 const getLocalizeCharProfile = async (host: string = ''): Promise<LocalizeCharProfileType[]> => {

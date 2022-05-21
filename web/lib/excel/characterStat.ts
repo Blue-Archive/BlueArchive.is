@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import type { CharacterStatType } from './types';
 
 const getCharacterStat = async (host: string = ''): Promise<CharacterStatType[]> => {
