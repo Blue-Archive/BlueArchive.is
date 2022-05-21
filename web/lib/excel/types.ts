@@ -5,6 +5,61 @@ export enum Rarity {
   'SSR',
 }
 
+export enum BattleAdaptation {
+  'D',
+  'C',
+  'B',
+  'A',
+  'S',
+  'SS',
+}
+
+export type CharacterStatType = {
+  CharacterId: number;
+  StabilityRate: number;
+  StabilityPoint: number;
+  AttackPower1: number;
+  AttackPower100: number;
+  MaxHP1: number;
+  MaxHP100: number;
+  DefensePower1: number;
+  DefensePower100: number;
+  HealPower1: number;
+  HealPower100: number;
+  DodgePoint: number;
+  AccuracyPoint: number;
+  CriticalPoint: number;
+  CriticalResistPoint: number;
+  CriticalDamageRate: number;
+  CriticalDamageResistRate: number;
+  BlockRate: number;
+  HealEffectivenessRate: number;
+  OppressionPower: number;
+  OppressionResist: number;
+  DefensePenetration1: number;
+  DefensePenetration100: number;
+  AmmoCount: number;
+  AmmoCost: number;
+  IgnoreDelayCount: number;
+  NormalAttackSpeed: number;
+  Range: number;
+  InitialRangeRate: number;
+  MoveSpeed: number;
+  SightPoint: number;
+  ActiveGauge: number;
+  GroggyGauge: number;
+  GroggyTime: number;
+  StrategyMobility: number;
+  ActionCount: number;
+  StrategySightRange: number;
+  DamageRatio: number;
+  DamagedRatio: number;
+  StreetBattleAdaptation: 'SS' | 'S' | 'A' | 'B' | 'C' | 'D';
+  OutdoorBattleAdaptation: 'SS' | 'S' | 'A' | 'B' | 'C' | 'D';
+  IndoorBattleAdaptation: 'SS' | 'S' | 'A' | 'B' | 'C' | 'D';
+  RegenCost: number;
+};
+
 export type CharacterType = {
   Id: number;
   DevName: string;

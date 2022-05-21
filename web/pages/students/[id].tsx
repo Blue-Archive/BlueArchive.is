@@ -9,18 +9,33 @@ import { Section } from '../../components/styled/Section';
 import { Space } from '../../components/styled/Space';
 import { NormalBox, ParallelBox } from '../../components/template/Parallel';
 import { getCharacterById } from '../../lib/excel/character';
+import { getCharacterStatById } from '../../lib/excel/characterStat';
 import { getLocalizeCharProfileById } from '../../lib/excel/localizeCharProfile';
-import { CharacterType, LocalizeCharProfileType, Rarity } from '../../lib/excel/types';
+import {
+  CharacterStatType,
+  CharacterType,
+  LocalizeCharProfileType,
+  Rarity,
+} from '../../lib/excel/types';
 import { useAppDispatch } from '../../lib/hooks';
-import { updateLocalizeCharProfile } from '../../lib/store/localizeCharProfileSlice';
+import { updateLocalizeCharProfile } from '../../lib/store/modules/localizeCharProfileSlice';
+import IndoorIcon from '../../public/images/students/id/Indoor.webp';
+import OutdoorIcon from '../../public/images/students/id/Outdoor.webp';
 import SpecialIcon from '../../public/images/students/id/SPECIAL.webp';
 import StarIcon from '../../public/images/students/id/star.webp';
+import StreetIcon from '../../public/images/students/id/Street.webp';
 import StrikerIcon from '../../public/images/students/id/STRIKER.webp';
 
 interface IStudentProps {
   localizeCharProfile: LocalizeCharProfileType;
   character: CharacterType;
+  characterStat: CharacterStatType;
 }
+
+const CharacterProfileHeader = styled.header`
+  display: flex;
+  width: 31%;
+`;
 
 const PortraitImageBox = styled.div`
   position: relative;
@@ -62,17 +77,22 @@ const PortraitImageBox = styled.div`
   }
 `;
 
-const CharacterProfileHeader = styled.header`
+const CharacterProfileArticle = styled.article`
   display: flex;
-  width: 31%;
+  width: calc(69% - 2rem);
+  flex-direction: column;
 `;
 
 //TODO: 배경 이미지 반영
-const ProfileInfoNameBox = styled(ParallelBox)`
+const ProfileInfoNameParallel = styled(ParallelBox)`
   width: 100%;
   height: 3.5rem;
   padding: 0.75rem;
   background-color: rgba(45, 76, 128, 0.75);
+  background-image: url('/images/common/bg-texture-type-1-parallel.webp');
+  background-position: -22px 50%;
+  background-blend-mode: color-burn;
+  background-size: 200px;
   color: #fff;
   align-items: center;
 
@@ -100,19 +120,35 @@ const ProfileInfoSquadBox = styled(NormalBox)`
   background-color: #fff;
 `;
 
-const CharacterProfileArticle = styled.article`
+const ProfileInfoDetailBox = styled.div`
   display: flex;
-  width: calc(69% - 2rem);
-  flex-direction: column;
+  justify-content: space-between;
 `;
 
+const ProfileInfoDetailParallel = styled(ParallelBox)`
+  background-color: rgba(255, 255, 255, 0.75);
+`;
+
+const tacticRoleString = {
+  DamageDealer: '딜러',
+  Tanker: '탱커',
+  Supporter: '서포터',
+  Healer: '힐러',
+  Vehicle: 'T.S',
+};
+
 //TODO: 학생 학교 소속별로 배경 이미지 바꾸기
-const Student: NextPage<IStudentProps> = ({ localizeCharProfile, character }): JSX.Element => {
+const Student: NextPage<IStudentProps> = ({
+  localizeCharProfile,
+  character,
+  characterStat,
+}): JSX.Element => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(updateLocalizeCharProfile(localizeCharProfile));
-  }, [dispatch, localizeCharProfile]);
+    console.log(character);
+  }, []);
 
   return (
     <>
@@ -136,7 +172,7 @@ const Student: NextPage<IStudentProps> = ({ localizeCharProfile, character }): J
           <Space width="2rem" />
           <CharacterProfileArticle>
             <Space height="1rem" />
-            <ProfileInfoNameBox>
+            <ProfileInfoNameParallel>
               <h1 className="straight">{`${localizeCharProfile.FamilyNameKr} ${localizeCharProfile.PersonalNameKr}`}</h1>
               <ProfileInfoStarBox className="straight">
                 {[...Array(Rarity[character.Rarity])].map((_, i) => (
@@ -150,8 +186,52 @@ const Student: NextPage<IStudentProps> = ({ localizeCharProfile, character }): J
                   <Image src={SpecialIcon} alt="Special" className="straight" />
                 )}
               </ProfileInfoSquadBox>
-            </ProfileInfoNameBox>
+            </ProfileInfoNameParallel>
             <Space height="1rem" />
+            <ProfileInfoDetailBox>
+              <ProfileInfoDetailParallel>
+                <div>
+                  <div>{tacticRoleString[character.TacticRole]}</div>
+                  <div>{character.TacticRange.toUpperCase()}</div>
+                </div>
+                <div>
+                  <div>{character.BulletType}</div>
+                  <div>{character.ArmorType}</div>
+                </div>
+                <div>
+                  <div>
+                    <Image src={StreetIcon} alt="StreetIcon" />
+                    <Image
+                      className="straight"
+                      src={`/images/students/id/${characterStat.StreetBattleAdaptation}.webp`}
+                      alt="StreetIcon"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div>
+                    <Image src={OutdoorIcon} alt="OutdoorIcon" />
+                    <Image
+                      className="straight"
+                      src={`/images/students/id/${characterStat.OutdoorBattleAdaptation}.webp`}
+                      alt="OutdoorIcon"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div>
+                    <Image src={IndoorIcon} alt="IndoorIcon" />
+                    <Image
+                      className="straight"
+                      src={`/images/students/id/${characterStat.IndoorBattleAdaptation}.webp`}
+                      alt="IndoorIcon"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </div>
+              </ProfileInfoDetailParallel>
+            </ProfileInfoDetailBox>
           </CharacterProfileArticle>
         </Article>
       </Section>
@@ -165,9 +245,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const localizeCharProfile = await getLocalizeCharProfileById(id, host);
   const character = await getCharacterById(id, host);
+  const characterStat = await getCharacterStatById(id, host);
 
   return {
-    props: { localizeCharProfile, character },
+    props: { localizeCharProfile, character, characterStat },
   };
 };
 

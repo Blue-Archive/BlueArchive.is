@@ -45,3 +45,7 @@ yarn-error.log*
 **/public/sw.js.map
 **/public/workbox-*.js.map
 **/public/worker-*.js.map
+
+# Unused Student Portrait
+Student_Portrait_*.png
+!Student_Portrait_*_Collection.png

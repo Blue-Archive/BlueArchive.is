@@ -2,9 +2,9 @@ import fetch from 'node-fetch';
 import type { LocalizeCharProfileType } from './types';
 
 const getLocalizeCharProfile = async (host: string = ''): Promise<LocalizeCharProfileType[]> => {
-  host = (host.match(/http\:\/\//) ?? { index: -1 }).index == 0 ? host : 'http://' + host;
+  host = (host.match(/https?\:\/\//) ?? { index: -1 }).index == 0 ? host : 'http://' + host;
   const characterSearch = await fetch(`${host}/api/dim/LocalizeCharProfileExcelTable`);
-  return characterSearch.json();
+  return characterSearch.json() as Promise<LocalizeCharProfileType[]>;
 };
 
 export const getLocalizeCharProfileByName = async (name: string, host?: string) => {
