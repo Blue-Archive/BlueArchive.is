@@ -126,7 +126,74 @@ const ProfileInfoDetailBox = styled.div`
 `;
 
 const ProfileInfoDetailParallel = styled(ParallelBox)`
-  background-color: rgba(255, 255, 255, 0.75);
+  width: 50%;
+  padding: 6px;
+  background-color: #ffffffbf;
+
+  gap: 4px;
+
+  & > div {
+    display: flex;
+    width: calc(100% / 3);
+
+    text-align: center;
+    gap: 4px;
+
+    &.flex-column {
+      flex-direction: column;
+    }
+
+    > div {
+      border-radius: 4px;
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  .tactic-role {
+    background-color: #fff;
+  }
+
+  .tactic-range {
+    background-color: #314462;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .type {
+    color: #fff;
+
+    .bullet {
+      background: url('/images/students/id/bullet.png') no-repeat -22% center/35%;
+    }
+    .armor {
+      background: url('/images/students/id/armor.png') no-repeat -22% center/35%;
+    }
+
+    .Explosion,
+    .LightArmor {
+      background-color: #851914;
+    }
+
+    .Pierce,
+    .HeavyArmor {
+      background-color: #b78a2d;
+    }
+
+    .Mystic,
+    .Unarmed {
+      background-color: #386d99;
+    }
+  }
+
+  .adaption {
+    > div {
+      display: flex;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      flex-direction: column;
+    }
+  }
 `;
 
 const tacticRoleString = {
@@ -135,6 +202,23 @@ const tacticRoleString = {
   Supporter: '서포터',
   Healer: '힐러',
   Vehicle: 'T.S',
+};
+
+const bulletTypeString: {
+  [key in CharacterType['BulletType']]: string;
+} = {
+  Explosion: '폭발',
+  Pierce: '관통',
+  Mystic: '신비',
+  Normal: '일반',
+};
+
+const armorTypeString: {
+  [key in CharacterType['ArmorType']]: string;
+} = {
+  LightArmor: '경장갑',
+  HeavyArmor: '중장갑',
+  Unarmed: '신비장갑',
 };
 
 //TODO: 학생 학교 소속별로 배경 이미지 바꾸기
@@ -153,7 +237,10 @@ const Student: NextPage<IStudentProps> = ({
   return (
     <>
       <Head>
-        <title>BlueArchive.is</title>
+        <title>
+          {`${localizeCharProfile.FamilyNameKr} ${localizeCharProfile.PersonalNameKr}`} -
+          BlueArchive.is
+        </title>
       </Head>
       <HeaderNavigation />
       <Space height="4rem" />
@@ -190,15 +277,19 @@ const Student: NextPage<IStudentProps> = ({
             <Space height="1rem" />
             <ProfileInfoDetailBox>
               <ProfileInfoDetailParallel>
-                <div>
-                  <div>{tacticRoleString[character.TacticRole]}</div>
-                  <div>{character.TacticRange.toUpperCase()}</div>
+                <div className="flex-column tactic">
+                  <div className="tactic-role">{tacticRoleString[character.TacticRole]}</div>
+                  <div className="tactic-range">{character.TacticRange.toUpperCase()}</div>
                 </div>
-                <div>
-                  <div>{character.BulletType}</div>
-                  <div>{character.ArmorType}</div>
+                <div className="flex-column type">
+                  <div className={'bullet ' + character.BulletType}>
+                    {bulletTypeString[character.BulletType]}
+                  </div>
+                  <div className={'armor ' + character.ArmorType}>
+                    {armorTypeString[character.ArmorType]}
+                  </div>
                 </div>
-                <div>
+                <div className="adaption">
                   <div>
                     <Image src={StreetIcon} alt="StreetIcon" />
                     <Image
