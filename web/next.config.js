@@ -7,4 +7,7 @@ const withPWA = require('next-pwa')({
 
 module.exports = withPWA({
   i18n,
+  compiler: {
+    emotion: true,
+  },
 });
